@@ -23,4 +23,5 @@ workflows:
     jobs:
       - maven_build
       - maven_test:
-          - requires:maven_build
+          requires:
+           - maven_build
