@@ -12,6 +12,6 @@ jobs:
 
 
 workflows: 
-  build_maven: 
+  build_now: 
     jobs:
       - maven_build
