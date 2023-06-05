@@ -1,0 +1,15 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: cimg/openjdk:20.0.1
+    steps:
+      - checkout 
+      - run: mvn clean build
+
+
+workflows: 
+  build_maven: 
+    jobs:
+      - build
