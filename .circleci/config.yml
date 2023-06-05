@@ -8,10 +8,19 @@ jobs:
       - image: cimg/openjdk:11.0
     steps:
       - checkout 
-      - run: mvn -B -DskipTests clean package
+      - run: mvn clean package
+jobs:
+  maven_test:
+    docker:
+      - image: cimg/openjdk:11.0
+    steps:
+      - checkout 
+      - run: mvn test
 
 
 workflows: 
-  build_now: 
+  build_test: 
     jobs:
       - maven_build
+      - maven_test:
+          - requires:maven_build
