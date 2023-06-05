@@ -5,7 +5,7 @@ orbs:
 jobs:
   maven_build:
     docker:
-      - image: cimg/openjdk:20.0.1
+      - image: cimg/openjdk:11.0
     steps:
       - checkout 
       - run: mvn -B -DskipTests clean package
