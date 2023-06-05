@@ -1,7 +1,9 @@
 version: 2.1
+orbs:
+  maven: circleci/maven@1.4.1
 
 jobs:
-  build:
+  maven_build:
     docker:
       - image: cimg/openjdk:20.0.1
     steps:
@@ -12,4 +14,4 @@ jobs:
 workflows: 
   build_maven: 
     jobs:
-      - build
+      - maven_build
