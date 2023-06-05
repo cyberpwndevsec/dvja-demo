@@ -8,7 +8,7 @@ jobs:
       - image: cimg/openjdk:20.0.1
     steps:
       - checkout 
-      - command: 'mvn clean build'
+      - run: 'mvn clean build'
 
 
 workflows: 
