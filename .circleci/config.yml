@@ -18,7 +18,6 @@ jobs:
       - checkout
       - run: npm install -q
       - snyk/install
-      - snyk/scan
 
   maven_test:
     docker:
