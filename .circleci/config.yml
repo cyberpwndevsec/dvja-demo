@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   maven: circleci/maven@1.4.1
+  snyk: snyk/snyk@1.7.0
 
 jobs:
   maven_build:
@@ -9,6 +10,14 @@ jobs:
     steps:
       - checkout 
       - run: mvn clean package
+  snyk_sca:
+    docker:
+      - image: cimg/node:lts
+    steps:
+      - checkout
+      - run: npm ci
+      - snyk/install
+      - snyk/scan
 
   maven_test:
     docker:
@@ -22,6 +31,9 @@ workflows:
   build_test: 
     jobs:
       - maven_build
-      - maven_test:
+      - snyk_sca:
           requires:
            - maven_build
+      - maven_test:
+          requires:
+           - snyk_sca
