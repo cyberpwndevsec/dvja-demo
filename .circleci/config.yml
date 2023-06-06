@@ -13,7 +13,6 @@ jobs:
   snyk_sca:
     docker:
       - image: cimg/node:20.2.0
-
     steps:
       - checkout
       - snyk/install
