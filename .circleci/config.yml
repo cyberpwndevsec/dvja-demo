@@ -16,7 +16,8 @@ jobs:
     steps:
       - checkout
       - snyk/install
-      - snyk/scan
+      - run:
+          command: snyk test
 
   maven_test:
     docker:
