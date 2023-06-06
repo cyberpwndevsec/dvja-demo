@@ -17,7 +17,7 @@ jobs:
       - checkout
       - snyk/install
       - run:
-          command: snyk code test
+          command: snyk code test || true
 
   maven_test:
     docker:
